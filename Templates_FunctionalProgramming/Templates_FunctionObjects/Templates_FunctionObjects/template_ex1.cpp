@@ -71,27 +71,27 @@ void StringManipulations()
 }
 
 
-int main()
-{
-	int arr[]{ 1,4, 7, 9, 2, 3 };
-	// reference to an array  ...
-	int res = SumofArray(arr);
-	cout << res << endl;
-	int(&refArray)[6] = arr;
-	refArray[0] = 9;
-	cout << SumofArray(arr) << endl;
-	Print<5>();
-	int x = 7;
-	Print<sizeof(x)>();
-	//int res = SumofArray<6>(arr); ??? What did we intend to show here? how do we finally avoid specifying the size of the array(in our example 6)?
-	
-	cout << "example2" << endl;
-	example2();
-
-	system("pause");
-	return 0;
-
-}
+//int main()
+//{
+//	int arr[]{ 1,4, 7, 9, 2, 3 };
+//	// reference to an array  ...
+//	int res = SumofArray(arr);
+//	cout << res << endl;
+//	int(&refArray)[6] = arr;
+//	refArray[0] = 9;
+//	cout << SumofArray(arr) << endl;
+//	Print<5>();
+//	int x = 7;
+//	Print<sizeof(x)>();
+//	//int res = SumofArray<6>(arr); ??? What did we intend to show here? how do we finally avoid specifying the size of the array(in our example 6)?
+//	
+//	cout << "example2" << endl;
+//	//example2();
+//
+//	system("pause");
+//	return 0;
+//
+//}
 
 
 //int main()

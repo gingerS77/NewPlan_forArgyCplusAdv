@@ -1246,7 +1246,7 @@ _main	PROC						; COMDAT
 	mov	DWORD PTR __$ArrayPad$[ebp], eax
 
 ; 72   : 	Comparator cmp;
-; 73   : 	cout << boolalpha << cmp(4, 3) << endl << endl;
+; 73   : 	cout << boolalpha << cmp(4, 3) << endl << endl;  // cmp.operator()(4,3);
 
 	mov	esi, esp
 	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
@@ -2058,6 +2058,8 @@ _TEXT	SEGMENT
 ___formal$ = 8						; size = 4
 ___formal$ = 12						; size = 4
 ?__empty_global_delete@@YAXPAXI@Z PROC			; __empty_global_delete, COMDAT
+
+; 104  : //}
 
 	push	ebp
 	mov	ebp, esp
