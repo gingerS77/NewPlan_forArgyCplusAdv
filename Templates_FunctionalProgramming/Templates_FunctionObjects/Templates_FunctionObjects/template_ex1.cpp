@@ -33,6 +33,8 @@ void Print()
 
 // Non type template arguments must be a constant value.... so thats why we can use it as the size of the 
 //array
+// Do we need to add size in the template part so as to use it inside SumofArray()?
+
 template<typename T, int size>
 T SumofArray(T (&arr)[size])
 {
@@ -42,6 +44,7 @@ T SumofArray(T (&arr)[size])
 	return sum;
 	//cout << typeid(x).name() << endl;
 }
+
 
 void StringManipulations()
 {
@@ -59,12 +62,35 @@ void StringManipulations()
 	//s[3] = 'x';
 	//cout << s << endl;
 
-	char *s = "himanshu";   // const char * s = "himanshu"; it means where s is pointing to cannot be changed , 
-	                        // but s(pointer) itself can be changed.
-	*(s + 1) = 'B';
+	//char *s = "himanshu";   // const char * s = "himanshu"; it means where s is pointing to cannot be changed , 
+	//                        // but s(pointer) itself can be changed.
+	//*(s + 1) = 'B';
 	//char s2[] = "lionel";
 	//s = s2;                      mystrcpy(), mystrcat(), mystrlen(), mystrcmp()
-	cout << s << endl;
+//	cout << s << endl;
+}
+
+
+int main()
+{
+	int arr[]{ 1,4, 7, 9, 2, 3 };
+	// reference to an array  ...
+	int res = SumofArray(arr);
+	cout << res << endl;
+	int(&refArray)[6] = arr;
+	refArray[0] = 9;
+	cout << SumofArray(arr) << endl;
+	Print<5>();
+	int x = 7;
+	Print<sizeof(x)>();
+	//int res = SumofArray<6>(arr); ??? What did we intend to show here? how do we finally avoid specifying the size of the array(in our example 6)?
+	
+	cout << "example2" << endl;
+	example2();
+
+	system("pause");
+	return 0;
+
 }
 
 
@@ -97,14 +123,17 @@ void oldfun()
 	float(*pfn)(float, float) = sum;  // by having an address of a template function, the compiler basically 
 									  // instantiates the template function for that particlar type
 									  // in this case it will instantiate the sum() for float type
+}
 
-	// ----------------------------------------------------------
+void example2()
+{
 
-	const char* b1{ "Barcelona" };
-	const char* a1{ "Arsenal" };
+	const char* b{ "Barcelona" };
+	const char* a{ "Arsenal" };
 
-	//const char * maximumString = max<const char*>(a, b);
+	const char * maximumString = max<const char*>(a, b);
 
-	//cout << maximumString << endl;
+	cout << *maximumString << endl; //This prints A only. Is this happening because the char pointer points to the first char of the string "Arsenal"?
+	cout << maximumString << endl;
 
 }
