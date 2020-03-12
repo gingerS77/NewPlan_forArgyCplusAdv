@@ -14,10 +14,15 @@ PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
 PUBLIC	?length@?$char_traits@D@std@@SAIPBD@Z		; std::char_traits<char>::length
 PUBLIC	?eq_int_type@?$char_traits@D@std@@SA_NABH0@Z	; std::char_traits<char>::eq_int_type
 PUBLIC	?eof@?$char_traits@D@std@@SAHXZ			; std::char_traits<char>::eof
+PUBLIC	??$swap@HX@std@@YAXAAH0@Z			; std::swap<int,void>
+PUBLIC	?boolalpha@std@@YAAAVios_base@1@AAV21@@Z	; std::boolalpha
 PUBLIC	?sum@@YAHHH@Z					; sum
+PUBLIC	?bubblesort@@YAXPAHHP6A_NHH@Z@Z			; bubblesort
 PUBLIC	?ascending@@YA_NHH@Z				; ascending
 PUBLIC	?descending@@YA_NHH@Z				; descending
-PUBLIC	?old_code@@YAXXZ				; old_code
+PUBLIC	?max@@YA_NHH@Z					; max
+PUBLIC	??RComparator@@QAE_NHH@Z			; Comparator::operator()
+PUBLIC	_main
 PUBLIC	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
 PUBLIC	??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
 PUBLIC	??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@AAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::_Sentry_base
@@ -25,11 +30,16 @@ PUBLIC	??1_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@XZ ; std
 PUBLIC	??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@AAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::sentry::sentry
 PUBLIC	??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@XZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::~sentry
 PUBLIC	??Bsentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QBE_NXZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::operator bool
-PUBLIC	??_C@_06FDOGABHK@Sum?5?$DN?5?$AA@		; `string'
+PUBLIC	??$move@AAH@std@@YA$$QAHAAH@Z			; std::move<int &>
+PUBLIC	??_C@_0BM@FLFBLBNL@?6Printing?5before?5sorting?3?6?5?$AA@ ; `string'
+PUBLIC	??_C@_02KNHHEEKP@?5?5?$AA@			; `string'
+PUBLIC	??_C@_05PDJBBECF@pause?$AA@			; `string'
+EXTRN	__imp__system:PROC
 EXTRN	_strlen:PROC
 EXTRN	__imp_?uncaught_exception@std@@YA_NXZ:PROC
 EXTRN	__imp_?good@ios_base@std@@QBE_NXZ:PROC
 EXTRN	__imp_?flags@ios_base@std@@QBEHXZ:PROC
+EXTRN	__imp_?setf@ios_base@std@@QAEHH@Z:PROC
 EXTRN	__imp_?width@ios_base@std@@QBE_JXZ:PROC
 EXTRN	__imp_?width@ios_base@std@@QAE_J_J@Z:PROC
 EXTRN	__imp_?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHD@Z:PROC
@@ -41,6 +51,8 @@ EXTRN	__imp_?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDXZ:PROC
 EXTRN	__imp_?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDD@Z:PROC
 EXTRN	__imp_?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ:PROC
 EXTRN	__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z:PROC
+EXTRN	__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z:PROC
+EXTRN	__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_N@Z:PROC
 EXTRN	__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z:PROC
 EXTRN	__imp_?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z:PROC
 EXTRN	__imp_?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@XZ:PROC
@@ -60,9 +72,18 @@ rtc$TMZ	ENDS
 rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
-;	COMDAT ??_C@_06FDOGABHK@Sum?5?$DN?5?$AA@
+;	COMDAT ??_C@_05PDJBBECF@pause?$AA@
 CONST	SEGMENT
-??_C@_06FDOGABHK@Sum?5?$DN?5?$AA@ DB 'Sum = ', 00H	; `string'
+??_C@_05PDJBBECF@pause?$AA@ DB 'pause', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_02KNHHEEKP@?5?5?$AA@
+CONST	SEGMENT
+??_C@_02KNHHEEKP@?5?5?$AA@ DB '  ', 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BM@FLFBLBNL@?6Printing?5before?5sorting?3?6?5?$AA@
+CONST	SEGMENT
+??_C@_0BM@FLFBLBNL@?6Printing?5before?5sorting?3?6?5?$AA@ DB 0aH, 'Printi'
+	DB	'ng before sorting:', 0aH, ' ', 00H		; `string'
 CONST	ENDS
 ;	COMDAT xdata$x
 xdata$x	SEGMENT
@@ -122,6 +143,40 @@ __ehfuncinfo$??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_trai
 	DD	00H
 	DD	01H
 xdata$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\type_traits
+;	COMDAT ??$move@AAH@std@@YA$$QAHAAH@Z
+_TEXT	SEGMENT
+__Arg$ = 8						; size = 4
+??$move@AAH@std@@YA$$QAHAAH@Z PROC			; std::move<int &>, COMDAT
+
+; 1291 : 	{	// forward _Arg as movable
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 192				; 000000c0H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-192]
+	mov	ecx, 48					; 00000030H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 1292 : 	return (static_cast<typename remove_reference<_Ty>::type&&>(_Arg));
+
+	mov	eax, DWORD PTR __Arg$[ebp]
+
+; 1293 : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$move@AAH@std@@YA$$QAHAAH@Z ENDP			; std::move<int &>
+_TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream
 ;	COMDAT ??Bsentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QBE_NXZ
@@ -1163,55 +1218,61 @@ text$x	ENDS
 ??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ENDP ; std::operator<<<std::char_traits<char> >
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\function_pointers.cpp
-;	COMDAT ?old_code@@YAXXZ
+;	COMDAT _main
 _TEXT	SEGMENT
-_result$ = -20						; size = 4
-_fn1$ = -8						; size = 4
-?old_code@@YAXXZ PROC					; old_code, COMDAT
+tv178 = -308						; size = 4
+_i$1 = -108						; size = 4
+_size$ = -96						; size = 4
+_A$ = -84						; size = 52
+_myfun_ptr$ = -24					; size = 4
+_cmp$ = -9						; size = 1
+__$ArrayPad$ = -4					; size = 4
+_main	PROC						; COMDAT
 
-; 75   : {
+; 71   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 216				; 000000d8H
+	sub	esp, 308				; 00000134H
 	push	ebx
 	push	esi
 	push	edi
-	lea	edi, DWORD PTR [ebp-216]
-	mov	ecx, 54					; 00000036H
+	lea	edi, DWORD PTR [ebp-308]
+	mov	ecx, 77					; 0000004dH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	mov	DWORD PTR __$ArrayPad$[ebp], eax
 
-; 76   : 	fn fn1 = sum;  // fn1 is function pointer....
-
-	mov	DWORD PTR _fn1$[ebp], OFFSET ?sum@@YAHHH@Z ; sum
-
-; 77   : 				   //int sum = (*fn)(3, 4);
-; 78   : 	int result = fn1(3, 4);
-
-	mov	esi, esp
-	push	4
-	push	3
-	call	DWORD PTR _fn1$[ebp]
-	add	esp, 8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-	mov	DWORD PTR _result$[ebp], eax
-
-; 79   : 	cout << "Sum = " << result << endl;
+; 72   : 	Comparator cmp;
+; 73   : 	cout << boolalpha << cmp(4, 3) << endl << endl;
 
 	mov	esi, esp
 	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
 	mov	edi, esp
-	mov	eax, DWORD PTR _result$[ebp]
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	push	3
+	push	4
+	lea	ecx, DWORD PTR _cmp$[ebp]
+	call	??RComparator@@QAE_NHH@Z		; Comparator::operator()
+	mov	ebx, esp
+	movzx	eax, al
 	push	eax
-	push	OFFSET ??_C@_06FDOGABHK@Sum?5?$DN?5?$AA@
+	mov	eax, esp
+	push	OFFSET ?boolalpha@std@@YAAAVios_base@1@AAV21@@Z ; std::boolalpha
 	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
-	push	ecx
-	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
-	add	esp, 8
+	mov	DWORD PTR tv178[ebp], eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z
+	mov	ecx, DWORD PTR tv178[ebp]
+	cmp	ecx, esp
+	call	__RTC_CheckEsp
 	mov	ecx, eax
-	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_N@Z
+	cmp	ebx, esp
+	call	__RTC_CheckEsp
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
 	cmp	edi, esp
 	call	__RTC_CheckEsp
 	mov	ecx, eax
@@ -1219,30 +1280,237 @@ _fn1$ = -8						; size = 4
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 80   : 	
-; 81   : }
+; 74   : 
+; 75   : 
+; 76   : 	fn myfun_ptr = max;  // assigning the address of a function to a function pointer
 
+	mov	DWORD PTR _myfun_ptr$[ebp], OFFSET ?max@@YA_NHH@Z ; max
+
+; 77   : 	cout << boolalpha << myfun_ptr(4, 9) << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	edi, esp
+	push	9
+	push	4
+	call	DWORD PTR _myfun_ptr$[ebp]
+	add	esp, 8
+	cmp	edi, esp
+	call	__RTC_CheckEsp
+	mov	edi, esp
+	movzx	eax, al
+	push	eax
+	mov	ebx, esp
+	push	OFFSET ?boolalpha@std@@YAAAVios_base@1@AAV21@@Z ; std::boolalpha
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z
+	cmp	ebx, esp
+	call	__RTC_CheckEsp
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_N@Z
+	cmp	edi, esp
+	call	__RTC_CheckEsp
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 78   : 	int A[] = { 3,2,1,5,6,4,12,44,67,21,13,31,55 };
+
+	mov	DWORD PTR _A$[ebp], 3
+	mov	DWORD PTR _A$[ebp+4], 2
+	mov	DWORD PTR _A$[ebp+8], 1
+	mov	DWORD PTR _A$[ebp+12], 5
+	mov	DWORD PTR _A$[ebp+16], 6
+	mov	DWORD PTR _A$[ebp+20], 4
+	mov	DWORD PTR _A$[ebp+24], 12		; 0000000cH
+	mov	DWORD PTR _A$[ebp+28], 44		; 0000002cH
+	mov	DWORD PTR _A$[ebp+32], 67		; 00000043H
+	mov	DWORD PTR _A$[ebp+36], 21		; 00000015H
+	mov	DWORD PTR _A$[ebp+40], 13		; 0000000dH
+	mov	DWORD PTR _A$[ebp+44], 31		; 0000001fH
+	mov	DWORD PTR _A$[ebp+48], 55		; 00000037H
+
+; 79   : 	int size = sizeof(A) / sizeof(int);
+
+	mov	DWORD PTR _size$[ebp], 13		; 0000000dH
+
+; 80   : 	std::cout << "\nPrinting before sorting:\n ";
+
+	push	OFFSET ??_C@_0BM@FLFBLBNL@?6Printing?5before?5sorting?3?6?5?$AA@
+	mov	eax, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+
+; 81   : 	for (int i = 0; i < size; ++i)
+
+	mov	DWORD PTR _i$1[ebp], 0
+	jmp	SHORT $LN4@main
+$LN2@main:
+	mov	eax, DWORD PTR _i$1[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$1[ebp], eax
+$LN4@main:
+	mov	eax, DWORD PTR _i$1[ebp]
+	cmp	eax, DWORD PTR _size$[ebp]
+	jge	SHORT $LN3@main
+
+; 82   : 		std::cout << A[i] << "  ";
+
+	push	OFFSET ??_C@_02KNHHEEKP@?5?5?$AA@
+	mov	esi, esp
+	mov	eax, DWORD PTR _i$1[ebp]
+	mov	ecx, DWORD PTR _A$[ebp+eax*4]
+	push	ecx
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+	jmp	SHORT $LN2@main
+$LN3@main:
+
+; 83   : 	cout << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 84   : 	//bubblesort(A, size, &ascending);
+; 85   : 
+; 86   : 	//std::cout << "Printing after sorting: ";
+; 87   : 	//for (int i = 0; i < size; ++i)
+; 88   : 	//	std::cout << A[i] << "  ";
+; 89   : 
+; 90   : 	cout << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 91   : 	system("pause");
+
+	mov	esi, esp
+	push	OFFSET ??_C@_05PDJBBECF@pause?$AA@
+	call	DWORD PTR __imp__system
+	add	esp, 4
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 92   : 	return 0;
+
+	xor	eax, eax
+
+; 93   : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN9@main
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
 	pop	edi
 	pop	esi
 	pop	ebx
-	add	esp, 216				; 000000d8H
+	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
+	xor	ecx, ebp
+	call	@__security_check_cookie@4
+	add	esp, 308				; 00000134H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-?old_code@@YAXXZ ENDP					; old_code
+	npad	2
+$LN9@main:
+	DD	2
+	DD	$LN8@main
+$LN8@main:
+	DD	-9					; fffffff7H
+	DD	1
+	DD	$LN6@main
+	DD	-84					; ffffffacH
+	DD	52					; 00000034H
+	DD	$LN7@main
+$LN7@main:
+	DB	65					; 00000041H
+	DB	0
+$LN6@main:
+	DB	99					; 00000063H
+	DB	109					; 0000006dH
+	DB	112					; 00000070H
+	DB	0
+_main	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\function_pointers.cpp
-;	COMDAT ?descending@@YA_NHH@Z
+;	COMDAT ??RComparator@@QAE_NHH@Z
+_TEXT	SEGMENT
+tv65 = -208						; size = 4
+_this$ = -8						; size = 4
+_x$ = 8							; size = 4
+_y$ = 12						; size = 4
+??RComparator@@QAE_NHH@Z PROC				; Comparator::operator(), COMDAT
+; _this$ = ecx
+
+; 64   : 	bool operator()(int x, int y) {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 208				; 000000d0H
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-208]
+	mov	ecx, 52					; 00000034H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 65   : 		return x > y;
+
+	mov	eax, DWORD PTR _x$[ebp]
+	cmp	eax, DWORD PTR _y$[ebp]
+	jle	SHORT $LN3@operator
+	mov	DWORD PTR tv65[ebp], 1
+	jmp	SHORT $LN4@operator
+$LN3@operator:
+	mov	DWORD PTR tv65[ebp], 0
+$LN4@operator:
+	mov	al, BYTE PTR tv65[ebp]
+
+; 66   : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??RComparator@@QAE_NHH@Z ENDP				; Comparator::operator()
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\function_pointers.cpp
+;	COMDAT ?max@@YA_NHH@Z
 _TEXT	SEGMENT
 tv65 = -193						; size = 1
 _a$ = 8							; size = 4
 _b$ = 12						; size = 4
-?descending@@YA_NHH@Z PROC				; descending, COMDAT
+?max@@YA_NHH@Z PROC					; max, COMDAT
 
-; 50   : bool descending(int a, int b) {
+; 59   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1255,7 +1523,51 @@ _b$ = 12						; size = 4
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 
-; 51   : 	return a < b ? true : false;
+; 60   : 	return (a > b) ? true : false;
+
+	mov	eax, DWORD PTR _a$[ebp]
+	cmp	eax, DWORD PTR _b$[ebp]
+	jle	SHORT $LN3@max
+	mov	BYTE PTR tv65[ebp], 1
+	jmp	SHORT $LN4@max
+$LN3@max:
+	mov	BYTE PTR tv65[ebp], 0
+$LN4@max:
+	mov	al, BYTE PTR tv65[ebp]
+
+; 61   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?max@@YA_NHH@Z ENDP					; max
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\function_pointers.cpp
+;	COMDAT ?descending@@YA_NHH@Z
+_TEXT	SEGMENT
+tv65 = -193						; size = 1
+_a$ = 8							; size = 4
+_b$ = 12						; size = 4
+?descending@@YA_NHH@Z PROC				; descending, COMDAT
+
+; 52   : bool descending(int a, int b) {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 196				; 000000c4H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-196]
+	mov	ecx, 49					; 00000031H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 53   : 	return a < b ? true : false;
 
 	mov	eax, DWORD PTR _a$[ebp]
 	cmp	eax, DWORD PTR _b$[ebp]
@@ -1267,7 +1579,7 @@ $LN3@descending:
 $LN4@descending:
 	mov	al, BYTE PTR tv65[ebp]
 
-; 52   : }
+; 54   : }
 
 	pop	edi
 	pop	esi
@@ -1286,7 +1598,7 @@ _a$ = 8							; size = 4
 _b$ = 12						; size = 4
 ?ascending@@YA_NHH@Z PROC				; ascending, COMDAT
 
-; 46   : bool ascending(int a, int b) {
+; 48   : bool ascending(int a, int b) {
 
 	push	ebp
 	mov	ebp, esp
@@ -1299,7 +1611,7 @@ _b$ = 12						; size = 4
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 
-; 47   : 	return a > b ? true : false;
+; 49   : 	return a > b ? true : false;
 
 	mov	eax, DWORD PTR _a$[ebp]
 	cmp	eax, DWORD PTR _b$[ebp]
@@ -1311,7 +1623,7 @@ $LN3@ascending:
 $LN4@ascending:
 	mov	al, BYTE PTR tv65[ebp]
 
-; 48   : }
+; 50   : }
 
 	pop	edi
 	pop	esi
@@ -1320,6 +1632,119 @@ $LN4@ascending:
 	pop	ebp
 	ret	0
 ?ascending@@YA_NHH@Z ENDP				; ascending
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\function_pointers.cpp
+;	COMDAT ?bubblesort@@YAXPAHHP6A_NHH@Z@Z
+_TEXT	SEGMENT
+_j$1 = -20						; size = 4
+_i$2 = -8						; size = 4
+_arr$ = 8						; size = 4
+_size$ = 12						; size = 4
+_compare$ = 16						; size = 4
+?bubblesort@@YAXPAHHP6A_NHH@Z@Z PROC			; bubblesort, COMDAT
+
+; 34   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 216				; 000000d8H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-216]
+	mov	ecx, 54					; 00000036H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 35   : 	for (int i = 0; i < size - 1; ++i)
+
+	mov	DWORD PTR _i$2[ebp], 0
+	jmp	SHORT $LN4@bubblesort
+$LN2@bubblesort:
+	mov	eax, DWORD PTR _i$2[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$2[ebp], eax
+$LN4@bubblesort:
+	mov	eax, DWORD PTR _size$[ebp]
+	sub	eax, 1
+	cmp	DWORD PTR _i$2[ebp], eax
+	jge	SHORT $LN1@bubblesort
+
+; 36   : 	{
+; 37   : 		for (int j = 0; j < size - i - 1; ++j)
+
+	mov	DWORD PTR _j$1[ebp], 0
+	jmp	SHORT $LN7@bubblesort
+$LN5@bubblesort:
+	mov	eax, DWORD PTR _j$1[ebp]
+	add	eax, 1
+	mov	DWORD PTR _j$1[ebp], eax
+$LN7@bubblesort:
+	mov	eax, DWORD PTR _size$[ebp]
+	sub	eax, DWORD PTR _i$2[ebp]
+	sub	eax, 1
+	cmp	DWORD PTR _j$1[ebp], eax
+	jge	SHORT $LN6@bubblesort
+
+; 38   : 		{
+; 39   : 			if (compare(arr[j] , arr[j + 1]))
+
+	mov	esi, esp
+	mov	eax, DWORD PTR _j$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	mov	edx, DWORD PTR [ecx+eax*4+4]
+	push	edx
+	mov	eax, DWORD PTR _j$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	mov	edx, DWORD PTR [ecx+eax*4]
+	push	edx
+	call	DWORD PTR _compare$[ebp]
+	add	esp, 8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	movzx	eax, al
+	test	eax, eax
+	je	SHORT $LN8@bubblesort
+
+; 40   : 			{
+; 41   : 				swap(arr[j], arr[j + 1]);
+
+	mov	eax, DWORD PTR _j$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	lea	edx, DWORD PTR [ecx+eax*4+4]
+	push	edx
+	mov	eax, DWORD PTR _j$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	lea	edx, DWORD PTR [ecx+eax*4]
+	push	edx
+	call	??$swap@HX@std@@YAXAAH0@Z		; std::swap<int,void>
+	add	esp, 8
+$LN8@bubblesort:
+
+; 42   : 			}
+; 43   : 		}
+
+	jmp	SHORT $LN5@bubblesort
+$LN6@bubblesort:
+
+; 44   : 	}
+
+	jmp	SHORT $LN2@bubblesort
+$LN1@bubblesort:
+
+; 45   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 216				; 000000d8H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?bubblesort@@YAXPAHHP6A_NHH@Z@Z ENDP			; bubblesort
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\function_pointers.cpp
@@ -1356,6 +1781,144 @@ _b$ = 12						; size = 4
 	pop	ebp
 	ret	0
 ?sum@@YAHHH@Z ENDP					; sum
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\ios
+;	COMDAT ?boolalpha@std@@YAAAVios_base@1@AAV21@@Z
+_TEXT	SEGMENT
+__Iosbase$ = 8						; size = 4
+?boolalpha@std@@YAAAVios_base@1@AAV21@@Z PROC		; std::boolalpha, COMDAT
+
+; 214  : 	{	// set boolalpha
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 192				; 000000c0H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-192]
+	mov	ecx, 48					; 00000030H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 215  : 	_Iosbase.setf(ios_base::boolalpha);
+
+	mov	esi, esp
+	push	16384					; 00004000H
+	mov	ecx, DWORD PTR __Iosbase$[ebp]
+	call	DWORD PTR __imp_?setf@ios_base@std@@QAEHH@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 216  : 	return (_Iosbase);
+
+	mov	eax, DWORD PTR __Iosbase$[ebp]
+
+; 217  : 	}
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 192				; 000000c0H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?boolalpha@std@@YAAAVios_base@1@AAV21@@Z ENDP		; std::boolalpha
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\utility
+;	COMDAT ??$swap@HX@std@@YAXAAH0@Z
+_TEXT	SEGMENT
+__Tmp$ = -12						; size = 4
+__$ArrayPad$ = -4					; size = 4
+__Left$ = 8						; size = 4
+__Right$ = 12						; size = 4
+??$swap@HX@std@@YAXAAH0@Z PROC				; std::swap<int,void>, COMDAT
+
+; 48   : 	{	// exchange values stored at _Left and _Right
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 208				; 000000d0H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-208]
+	mov	ecx, 52					; 00000034H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	mov	DWORD PTR __$ArrayPad$[ebp], eax
+
+; 49   : 	_Ty _Tmp = _STD move(_Left);
+
+	mov	eax, DWORD PTR __Left$[ebp]
+	push	eax
+	call	??$move@AAH@std@@YA$$QAHAAH@Z		; std::move<int &>
+	add	esp, 4
+	mov	ecx, DWORD PTR [eax]
+	mov	DWORD PTR __Tmp$[ebp], ecx
+
+; 50   : 	_Left = _STD move(_Right);
+
+	mov	eax, DWORD PTR __Right$[ebp]
+	push	eax
+	call	??$move@AAH@std@@YA$$QAHAAH@Z		; std::move<int &>
+	add	esp, 4
+	mov	ecx, DWORD PTR __Left$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], edx
+
+; 51   : 	_Right = _STD move(_Tmp);
+
+	lea	eax, DWORD PTR __Tmp$[ebp]
+	push	eax
+	call	??$move@AAH@std@@YA$$QAHAAH@Z		; std::move<int &>
+	add	esp, 4
+	mov	ecx, DWORD PTR __Right$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], edx
+
+; 52   : 	}
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@swap
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
+	xor	ecx, ebp
+	call	@__security_check_cookie@4
+	add	esp, 208				; 000000d0H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+	npad	2
+$LN5@swap:
+	DD	1
+	DD	$LN4@swap
+$LN4@swap:
+	DD	-12					; fffffff4H
+	DD	4
+	DD	$LN3@swap
+$LN3@swap:
+	DB	95					; 0000005fH
+	DB	84					; 00000054H
+	DB	109					; 0000006dH
+	DB	112					; 00000070H
+	DB	0
+??$swap@HX@std@@YAXAAH0@Z ENDP				; std::swap<int,void>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\iosfwd
@@ -1521,7 +2084,7 @@ _TEXT	SEGMENT
 ___formal$ = 8						; size = 4
 ?__empty_global_delete@@YAXPAX@Z PROC			; __empty_global_delete, COMDAT
 
-; 82   : }
+; 104  : //}
 
 	push	ebp
 	mov	ebp, esp

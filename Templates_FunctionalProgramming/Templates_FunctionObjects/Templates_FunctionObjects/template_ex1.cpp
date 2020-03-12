@@ -31,6 +31,8 @@ void Print()
 	cout << typeid(x).name() << endl;
 }
 
+// Non type template arguments must be a constant value.... so thats why we can use it as the size of the 
+//array
 template<typename T, int size>
 T SumofArray(T (&arr)[size])
 {
@@ -41,22 +43,48 @@ T SumofArray(T (&arr)[size])
 	//cout << typeid(x).name() << endl;
 }
 
-
-int main()
+void StringManipulations()
 {
-	int arr[]{ 1,4, 7, 9, 2, 3 };
-	// reference to an array  ...
-	int res = SumofArray(arr);
-	//int(&ref)[6] = arr;
-	//ref[0] = 9;
-	Print<5>();
-	int x = 7;
-	Print<sizeof(x)>();
-	//int res = SumofArray<6>(arr);
-	
-	system("pause");
-	return 0;
+	const int MAX_N = 100;
+	char G[MAX_N][MAX_N + 1];  // G[0]-> template  , G[1]-> object, G[2]....so on
+	// char *G[MAX_N];
+
+	//for (int i = 0; i < 5; ++i)
+	//	scanf("%s", G[i]);
+	//// print the string of which we taken the input
+	//for (int i = 0; i < 5; ++i)
+	//	printf("%s\n", G[i]);
+
+	//char s[] = "Argy"; //  
+	//s[3] = 'x';
+	//cout << s << endl;
+
+	char *s = "himanshu";   // const char * s = "himanshu"; it means where s is pointing to cannot be changed , 
+	                        // but s(pointer) itself can be changed.
+	*(s + 1) = 'B';
+	//char s2[] = "lionel";
+	//s = s2;                      mystrcpy(), mystrcat(), mystrlen(), mystrcmp()
+	cout << s << endl;
 }
+
+
+//int main()
+//{
+//	int arr[]{ 1,4, 7, 9, 2, 3 };
+//	StringManipulations();
+//	// auto x = begin(arr);   
+//	// reference to an array  ...
+//	//int res = SumofArray(arr);
+//	//int(&ref)[6] = arr;
+//	//ref[0] = 9;
+//	//Print<5>();  // to invoke it we are passing the non-type parameter within the template argument list.
+//	//int x = 7;
+//	//Print<sizeof(x)>();
+//	//int res = SumofArray<6>(arr);
+//	
+//	system("pause");
+//	return 0;
+//}
 
 
 void oldfun()
