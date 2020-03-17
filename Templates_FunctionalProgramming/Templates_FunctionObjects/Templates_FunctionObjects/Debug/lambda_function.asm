@@ -1209,8 +1209,9 @@ _TEXT	ENDS
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
 ;	COMDAT _main
 _TEXT	SEGMENT
-$T1 = -225						; size = 1
-_res$ = -24						; size = 4
+$T1 = -237						; size = 1
+_res$ = -36						; size = 4
+_y$ = -24						; size = 4
 _sum$ = -9						; size = 1
 __$ArrayPad$ = -4					; size = 4
 _main	PROC						; COMDAT
@@ -1219,12 +1220,12 @@ _main	PROC						; COMDAT
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 232				; 000000e8H
+	sub	esp, 244				; 000000f4H
 	push	ebx
 	push	esi
 	push	edi
-	lea	edi, DWORD PTR [ebp-232]
-	mov	ecx, 58					; 0000003aH
+	lea	edi, DWORD PTR [ebp-244]
+	mov	ecx, 61					; 0000003dH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	eax, DWORD PTR ___security_cookie
@@ -1242,7 +1243,10 @@ _main	PROC						; COMDAT
 
 ; 15   : 		return x + y;
 ; 16   : 	};
-; 17   : 
+; 17   : 	int y = 10;  // ignore this line
+
+	mov	DWORD PTR _y$[ebp], 10			; 0000000aH
+
 ; 18   : 	int res = sum(4,5);
 
 	push	5
@@ -1301,13 +1305,13 @@ _main	PROC						; COMDAT
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 232				; 000000e8H
+	add	esp, 244				; 000000f4H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	2
+	npad	3
 $LN5@main:
 	DD	1
 	DD	$LN4@main

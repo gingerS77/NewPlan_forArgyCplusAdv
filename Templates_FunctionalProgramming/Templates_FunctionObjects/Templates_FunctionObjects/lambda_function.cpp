@@ -14,7 +14,7 @@ int main()
 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
 		return x + y;
 	};
-
+	int y = 10;  // ignore this line
 	int res = sum(4,5);
 	cout << "res = " << res << endl;
 
