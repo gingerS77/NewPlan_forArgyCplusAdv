@@ -1166,15 +1166,15 @@ text$x	ENDS
 ??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ENDP ; std::operator<<<std::char_traits<char> >
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
-;	COMDAT ??R<lambda_32ea18a353a3b7c2554909acf2bc9d62>@@QBEHHH@Z
+;	COMDAT ??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z
 _TEXT	SEGMENT
 _this$ = -8						; size = 4
 _x$ = 8							; size = 4
 _y$ = 12						; size = 4
-??R<lambda_32ea18a353a3b7c2554909acf2bc9d62>@@QBEHHH@Z PROC ; <lambda_32ea18a353a3b7c2554909acf2bc9d62>::operator(), COMDAT
+??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z PROC ; <lambda_67e914eeb8320af3ebc052e0e0937854>::operator(), COMDAT
 ; _this$ = ecx
 
-; 14   : 	auto sum = [](int x, int y) {
+; 14   : 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
 
 	push	ebp
 	mov	ebp, esp
@@ -1203,7 +1203,7 @@ _y$ = 12						; size = 4
 	mov	esp, ebp
 	pop	ebp
 	ret	8
-??R<lambda_32ea18a353a3b7c2554909acf2bc9d62>@@QBEHHH@Z ENDP ; <lambda_32ea18a353a3b7c2554909acf2bc9d62>::operator()
+??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z ENDP ; <lambda_67e914eeb8320af3ebc052e0e0937854>::operator()
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
@@ -1235,7 +1235,7 @@ _main	PROC						; COMDAT
 ; 11   : 	//	cout << "hello lambda"<< endl;
 ; 12   : 	//}();       // using function call operator, we invoke the lambda function. 
 ; 13   : 
-; 14   : 	auto sum = [](int x, int y) {
+; 14   : 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
 
 	xor	eax, eax
 	mov	BYTE PTR $T1[ebp], al
@@ -1248,7 +1248,7 @@ _main	PROC						; COMDAT
 	push	5
 	push	4
 	lea	ecx, DWORD PTR _sum$[ebp]
-	call	??R<lambda_32ea18a353a3b7c2554909acf2bc9d62>@@QBEHHH@Z ; <lambda_32ea18a353a3b7c2554909acf2bc9d62>::operator()
+	call	??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z ; <lambda_67e914eeb8320af3ebc052e0e0937854>::operator()
 	mov	DWORD PTR _res$[ebp], eax
 
 ; 19   : 	cout << "res = " << res << endl;
