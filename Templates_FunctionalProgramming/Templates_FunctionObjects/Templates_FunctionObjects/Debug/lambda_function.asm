@@ -17,13 +17,22 @@ PUBLIC	?eof@?$char_traits@D@std@@SAHXZ			; std::char_traits<char>::eof
 PUBLIC	_main
 PUBLIC	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
 PUBLIC	??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+PUBLIC	??$ForEach@H$04V<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@@YAXAAY04HV<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@Z ; ForEach<int,5,<lambda_03af731043f2dcdf79a62fa78f9863c5> >
+PUBLIC	?lambda_ex1@@YAXXZ				; lambda_ex1
+PUBLIC	?lambda_ex2@@YAXXZ				; lambda_ex2
+PUBLIC	?lambda_ex3@@YAXXZ				; lambda_ex3
+PUBLIC	??$ForEach@H$04V<lambda_dcabf3c540ed13ee10975881c842e952>@@@@YAXAAY04HV<lambda_dcabf3c540ed13ee10975881c842e952>@@@Z ; ForEach<int,5,<lambda_dcabf3c540ed13ee10975881c842e952> >
+PUBLIC	??$ForEach@H$04V<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@@YAXAAY04HV<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@Z ; ForEach<int,5,<lambda_3eb9336614e7a75fa3896f9a203afe76> >
 PUBLIC	??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@AAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::_Sentry_base
 PUBLIC	??1_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@XZ ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::~_Sentry_base
 PUBLIC	??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@AAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::sentry::sentry
 PUBLIC	??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@XZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::~sentry
 PUBLIC	??Bsentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QBE_NXZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::operator bool
-PUBLIC	??_C@_06OGCKBICK@res?5?$DN?5?$AA@		; `string'
+PUBLIC	??_C@_07CFAHFKIB@Sum?5?$DN?5?5?$AA@		; `string'
 PUBLIC	??_C@_05PDJBBECF@pause?$AA@			; `string'
+PUBLIC	??_C@_06OGCKBICK@res?5?$DN?5?$AA@		; `string'
+PUBLIC	??_C@_0CE@ENLGCCNA@Initially?5elements?5in?5the?5buffer@ ; `string'
+PUBLIC	??_C@_01CLKCMJKC@?5?$AA@			; `string'
 EXTRN	__imp__system:PROC
 EXTRN	_strlen:PROC
 EXTRN	__imp_?uncaught_exception@std@@YA_NXZ:PROC
@@ -59,13 +68,26 @@ rtc$TMZ	ENDS
 rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
-;	COMDAT ??_C@_05PDJBBECF@pause?$AA@
+;	COMDAT ??_C@_01CLKCMJKC@?5?$AA@
 CONST	SEGMENT
-??_C@_05PDJBBECF@pause?$AA@ DB 'pause', 00H		; `string'
+??_C@_01CLKCMJKC@?5?$AA@ DB ' ', 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0CE@ENLGCCNA@Initially?5elements?5in?5the?5buffer@
+CONST	SEGMENT
+??_C@_0CE@ENLGCCNA@Initially?5elements?5in?5the?5buffer@ DB 'Initially el'
+	DB	'ements in the buffer : ', 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_06OGCKBICK@res?5?$DN?5?$AA@
 CONST	SEGMENT
 ??_C@_06OGCKBICK@res?5?$DN?5?$AA@ DB 'res = ', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_05PDJBBECF@pause?$AA@
+CONST	SEGMENT
+??_C@_05PDJBBECF@pause?$AA@ DB 'pause', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07CFAHFKIB@Sum?5?$DN?5?5?$AA@
+CONST	SEGMENT
+??_C@_07CFAHFKIB@Sum?5?$DN?5?5?$AA@ DB 'Sum =  ', 00H	; `string'
 CONST	ENDS
 ;	COMDAT xdata$x
 xdata$x	SEGMENT
@@ -125,6 +147,162 @@ __ehfuncinfo$??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_trai
 	DD	00H
 	DD	01H
 xdata$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$?RH@<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@AAH@Z
+_TEXT	SEGMENT
+_this$ = -8						; size = 4
+_x$ = 8							; size = 4
+??$?RH@<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@AAH@Z PROC ; <lambda_3eb9336614e7a75fa3896f9a203afe76>::operator()<int>, COMDAT
+; _this$ = ecx
+
+; 68   : 	ForEach(buffer, [fixed_no](auto &x)mutable {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 69   : 		x += fixed_no;
+
+	mov	eax, DWORD PTR _x$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	mov	edx, DWORD PTR _this$[ebp]
+	add	ecx, DWORD PTR [edx]
+	mov	eax, DWORD PTR _x$[ebp]
+	mov	DWORD PTR [eax], ecx
+
+; 70   : 		++fixed_no;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	add	ecx, 1
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx], ecx
+
+; 71   : 	});
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$?RH@<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@AAH@Z ENDP ; <lambda_3eb9336614e7a75fa3896f9a203afe76>::operator()<int>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$?RH@<lambda_dcabf3c540ed13ee10975881c842e952>@@QBE@H@Z
+_TEXT	SEGMENT
+_this$ = -8						; size = 4
+_x$ = 8							; size = 4
+??$?RH@<lambda_dcabf3c540ed13ee10975881c842e952>@@QBE@H@Z PROC ; <lambda_dcabf3c540ed13ee10975881c842e952>::operator()<int>, COMDAT
+; _this$ = ecx
+
+; 63   : 	ForEach(buffer, [](auto x) {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 64   : 		cout << x << " ";
+
+	push	OFFSET ??_C@_01CLKCMJKC@?5?$AA@
+	mov	esi, esp
+	mov	eax, DWORD PTR _x$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+
+; 65   : 	});
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 204				; 000000ccH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$?RH@<lambda_dcabf3c540ed13ee10975881c842e952>@@QBE@H@Z ENDP ; <lambda_dcabf3c540ed13ee10975881c842e952>::operator()<int>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$?RH@<lambda_03af731043f2dcdf79a62fa78f9863c5>@@QBE@H@Z
+_TEXT	SEGMENT
+_this$ = -8						; size = 4
+_x$ = 8							; size = 4
+??$?RH@<lambda_03af731043f2dcdf79a62fa78f9863c5>@@QBE@H@Z PROC ; <lambda_03af731043f2dcdf79a62fa78f9863c5>::operator()<int>, COMDAT
+; _this$ = ecx
+
+; 31   : 	ForEach(buffer, [](auto x) {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 32   : 		cout << x << " ";
+
+	push	OFFSET ??_C@_01CLKCMJKC@?5?$AA@
+	mov	esi, esp
+	mov	eax, DWORD PTR _x$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+
+; 33   : 	});
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 204				; 000000ccH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$?RH@<lambda_03af731043f2dcdf79a62fa78f9863c5>@@QBE@H@Z ENDP ; <lambda_03af731043f2dcdf79a62fa78f9863c5>::operator()<int>
+_TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream
 ;	COMDAT ??Bsentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QBE_NXZ
@@ -587,6 +765,643 @@ $LN1@Sentry_bas:
 	pop	ebp
 	ret	4
 ??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@AAV12@@Z ENDP ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::_Sentry_base
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$ForEach@H$04V<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@@YAXAAY04HV<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@Z
+_TEXT	SEGMENT
+_i$1 = -8						; size = 4
+_arr$ = 8						; size = 4
+_op$ = 12						; size = 4
+??$ForEach@H$04V<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@@YAXAAY04HV<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@Z PROC ; ForEach<int,5,<lambda_3eb9336614e7a75fa3896f9a203afe76> >, COMDAT
+
+; 10   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 11   : 	for (int i = 0; i < size; ++i)
+
+	mov	DWORD PTR _i$1[ebp], 0
+	jmp	SHORT $LN4@ForEach
+$LN2@ForEach:
+	mov	eax, DWORD PTR _i$1[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$1[ebp], eax
+$LN4@ForEach:
+	cmp	DWORD PTR _i$1[ebp], 5
+	jge	SHORT $LN1@ForEach
+
+; 12   : 		op(arr[i]);
+
+	mov	eax, DWORD PTR _i$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	lea	edx, DWORD PTR [ecx+eax*4]
+	push	edx
+	lea	ecx, DWORD PTR _op$[ebp]
+	call	??$?RH@<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@AAH@Z ; <lambda_3eb9336614e7a75fa3896f9a203afe76>::operator()<int>
+	jmp	SHORT $LN2@ForEach
+$LN1@ForEach:
+
+; 13   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 204				; 000000ccH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$ForEach@H$04V<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@@YAXAAY04HV<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@Z ENDP ; ForEach<int,5,<lambda_3eb9336614e7a75fa3896f9a203afe76> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??0<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@ABH@Z
+_TEXT	SEGMENT
+_this$ = -8						; size = 4
+_<fixed_no>$ = 8					; size = 4
+??0<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@ABH@Z PROC ; <lambda_3eb9336614e7a75fa3896f9a203afe76>::<lambda_3eb9336614e7a75fa3896f9a203afe76>, COMDAT
+; _this$ = ecx
+
+; 71   : 	});
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _<fixed_no>$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	DWORD PTR [eax], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??0<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@ABH@Z ENDP ; <lambda_3eb9336614e7a75fa3896f9a203afe76>::<lambda_3eb9336614e7a75fa3896f9a203afe76>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$ForEach@H$04V<lambda_dcabf3c540ed13ee10975881c842e952>@@@@YAXAAY04HV<lambda_dcabf3c540ed13ee10975881c842e952>@@@Z
+_TEXT	SEGMENT
+_i$1 = -8						; size = 4
+_arr$ = 8						; size = 4
+_op$ = 12						; size = 1
+??$ForEach@H$04V<lambda_dcabf3c540ed13ee10975881c842e952>@@@@YAXAAY04HV<lambda_dcabf3c540ed13ee10975881c842e952>@@@Z PROC ; ForEach<int,5,<lambda_dcabf3c540ed13ee10975881c842e952> >, COMDAT
+
+; 10   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 11   : 	for (int i = 0; i < size; ++i)
+
+	mov	DWORD PTR _i$1[ebp], 0
+	jmp	SHORT $LN4@ForEach
+$LN2@ForEach:
+	mov	eax, DWORD PTR _i$1[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$1[ebp], eax
+$LN4@ForEach:
+	cmp	DWORD PTR _i$1[ebp], 5
+	jge	SHORT $LN1@ForEach
+
+; 12   : 		op(arr[i]);
+
+	mov	eax, DWORD PTR _i$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	mov	edx, DWORD PTR [ecx+eax*4]
+	push	edx
+	lea	ecx, DWORD PTR _op$[ebp]
+	call	??$?RH@<lambda_dcabf3c540ed13ee10975881c842e952>@@QBE@H@Z ; <lambda_dcabf3c540ed13ee10975881c842e952>::operator()<int>
+	jmp	SHORT $LN2@ForEach
+$LN1@ForEach:
+
+; 13   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 204				; 000000ccH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$ForEach@H$04V<lambda_dcabf3c540ed13ee10975881c842e952>@@@@YAXAAY04HV<lambda_dcabf3c540ed13ee10975881c842e952>@@@Z ENDP ; ForEach<int,5,<lambda_dcabf3c540ed13ee10975881c842e952> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ?lambda_ex3@@YAXXZ
+_TEXT	SEGMENT
+$T1 = -256						; size = 4
+$T2 = -241						; size = 1
+_fixed_no$ = -40					; size = 4
+_buffer$ = -28						; size = 20
+__$ArrayPad$ = -4					; size = 4
+?lambda_ex3@@YAXXZ PROC					; lambda_ex3, COMDAT
+
+; 60   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 260				; 00000104H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-260]
+	mov	ecx, 65					; 00000041H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	mov	DWORD PTR __$ArrayPad$[ebp], eax
+
+; 61   : 	int buffer[]{ 2,4,6,8,7 };
+
+	mov	DWORD PTR _buffer$[ebp], 2
+	mov	DWORD PTR _buffer$[ebp+4], 4
+	mov	DWORD PTR _buffer$[ebp+8], 6
+	mov	DWORD PTR _buffer$[ebp+12], 8
+	mov	DWORD PTR _buffer$[ebp+16], 7
+
+; 62   : 	cout << "Initially elements in the buffer : " << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	push	OFFSET ??_C@_0CE@ENLGCCNA@Initially?5elements?5in?5the?5buffer@
+	mov	eax, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 63   : 	ForEach(buffer, [](auto x) {
+
+	xor	eax, eax
+	mov	BYTE PTR $T2[ebp], al
+	movzx	ecx, BYTE PTR $T2[ebp]
+	push	ecx
+	lea	edx, DWORD PTR _buffer$[ebp]
+	push	edx
+	call	??$ForEach@H$04V<lambda_dcabf3c540ed13ee10975881c842e952>@@@@YAXAAY04HV<lambda_dcabf3c540ed13ee10975881c842e952>@@@Z ; ForEach<int,5,<lambda_dcabf3c540ed13ee10975881c842e952> >
+	add	esp, 8
+
+; 64   : 		cout << x << " ";
+; 65   : 	});
+; 66   : 	cout << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 67   : 	int fixed_no = 4;
+
+	mov	DWORD PTR _fixed_no$[ebp], 4
+
+; 68   : 	ForEach(buffer, [fixed_no](auto &x)mutable {
+
+	lea	eax, DWORD PTR _fixed_no$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR $T1[ebp]
+	call	??0<lambda_3eb9336614e7a75fa3896f9a203afe76>@@QAE@ABH@Z ; <lambda_3eb9336614e7a75fa3896f9a203afe76>::<lambda_3eb9336614e7a75fa3896f9a203afe76>
+	mov	ecx, DWORD PTR [eax]
+	push	ecx
+	lea	edx, DWORD PTR _buffer$[ebp]
+	push	edx
+	call	??$ForEach@H$04V<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@@YAXAAY04HV<lambda_3eb9336614e7a75fa3896f9a203afe76>@@@Z ; ForEach<int,5,<lambda_3eb9336614e7a75fa3896f9a203afe76> >
+	add	esp, 8
+
+; 69   : 		x += fixed_no;
+; 70   : 		++fixed_no;
+; 71   : 	});
+; 72   : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN6@lambda_ex3
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
+	xor	ecx, ebp
+	call	@__security_check_cookie@4
+	add	esp, 260				; 00000104H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+	npad	2
+$LN6@lambda_ex3:
+	DD	2
+	DD	$LN5@lambda_ex3
+$LN5@lambda_ex3:
+	DD	-28					; ffffffe4H
+	DD	20					; 00000014H
+	DD	$LN3@lambda_ex3
+	DD	-40					; ffffffd8H
+	DD	4
+	DD	$LN4@lambda_ex3
+$LN4@lambda_ex3:
+	DB	102					; 00000066H
+	DB	105					; 00000069H
+	DB	120					; 00000078H
+	DB	101					; 00000065H
+	DB	100					; 00000064H
+	DB	95					; 0000005fH
+	DB	110					; 0000006eH
+	DB	111					; 0000006fH
+	DB	0
+$LN3@lambda_ex3:
+	DB	98					; 00000062H
+	DB	117					; 00000075H
+	DB	102					; 00000066H
+	DB	102					; 00000066H
+	DB	101					; 00000065H
+	DB	114					; 00000072H
+	DB	0
+?lambda_ex3@@YAXXZ ENDP					; lambda_ex3
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$?RDD@<lambda_37f83595926dad5589abad582532753a>@@QBE@DD@Z
+_TEXT	SEGMENT
+_this$ = -8						; size = 4
+_x$ = 8							; size = 1
+_y$ = 12						; size = 1
+??$?RDD@<lambda_37f83595926dad5589abad582532753a>@@QBE@DD@Z PROC ; <lambda_37f83595926dad5589abad582532753a>::operator()<char,char>, COMDAT
+; _this$ = ecx
+
+; 52   : 	auto sum = [](auto x, auto y) {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 53   : 		return x + y;
+
+	movsx	eax, BYTE PTR _x$[ebp]
+	movsx	ecx, BYTE PTR _y$[ebp]
+	add	eax, ecx
+
+; 54   : 	};
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??$?RDD@<lambda_37f83595926dad5589abad582532753a>@@QBE@DD@Z ENDP ; <lambda_37f83595926dad5589abad582532753a>::operator()<char,char>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ?lambda_ex2@@YAXXZ
+_TEXT	SEGMENT
+$T1 = -225						; size = 1
+_res$ = -24						; size = 4
+_sum$ = -9						; size = 1
+__$ArrayPad$ = -4					; size = 4
+?lambda_ex2@@YAXXZ PROC					; lambda_ex2, COMDAT
+
+; 51   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 232				; 000000e8H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-232]
+	mov	ecx, 58					; 0000003aH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	mov	DWORD PTR __$ArrayPad$[ebp], eax
+
+; 52   : 	auto sum = [](auto x, auto y) {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
+
+	xor	eax, eax
+	mov	BYTE PTR $T1[ebp], al
+
+; 53   : 		return x + y;
+; 54   : 	};
+; 55   : 	auto res = sum('a', 'b');
+
+	push	98					; 00000062H
+	push	97					; 00000061H
+	lea	ecx, DWORD PTR _sum$[ebp]
+	call	??$?RDD@<lambda_37f83595926dad5589abad582532753a>@@QBE@DD@Z ; <lambda_37f83595926dad5589abad582532753a>::operator()<char,char>
+	mov	DWORD PTR _res$[ebp], eax
+
+; 56   : 	cout << "res = " << res << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	edi, esp
+	mov	eax, DWORD PTR _res$[ebp]
+	push	eax
+	push	OFFSET ??_C@_06OGCKBICK@res?5?$DN?5?$AA@
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	push	ecx
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	cmp	edi, esp
+	call	__RTC_CheckEsp
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 57   : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@lambda_ex2
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
+	xor	ecx, ebp
+	call	@__security_check_cookie@4
+	add	esp, 232				; 000000e8H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+	npad	3
+$LN5@lambda_ex2:
+	DD	1
+	DD	$LN4@lambda_ex2
+$LN4@lambda_ex2:
+	DD	-9					; fffffff7H
+	DD	1
+	DD	$LN3@lambda_ex2
+$LN3@lambda_ex2:
+	DB	115					; 00000073H
+	DB	117					; 00000075H
+	DB	109					; 0000006dH
+	DB	0
+?lambda_ex2@@YAXXZ ENDP					; lambda_ex2
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??R<lambda_63d2202bb224af3072d421a99a26f479>@@QBEHHH@Z
+_TEXT	SEGMENT
+_this$ = -8						; size = 4
+_x$ = 8							; size = 4
+_y$ = 12						; size = 4
+??R<lambda_63d2202bb224af3072d421a99a26f479>@@QBEHHH@Z PROC ; <lambda_63d2202bb224af3072d421a99a26f479>::operator(), COMDAT
+; _this$ = ecx
+
+; 42   : 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 43   : 		return x + y;
+
+	mov	eax, DWORD PTR _x$[ebp]
+	add	eax, DWORD PTR _y$[ebp]
+
+; 44   : 	};
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??R<lambda_63d2202bb224af3072d421a99a26f479>@@QBEHHH@Z ENDP ; <lambda_63d2202bb224af3072d421a99a26f479>::operator()
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ?lambda_ex1@@YAXXZ
+_TEXT	SEGMENT
+$T1 = -237						; size = 1
+_res$ = -36						; size = 4
+_y$ = -24						; size = 4
+_sum$ = -9						; size = 1
+__$ArrayPad$ = -4					; size = 4
+?lambda_ex1@@YAXXZ PROC					; lambda_ex1, COMDAT
+
+; 41   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 244				; 000000f4H
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-244]
+	mov	ecx, 61					; 0000003dH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	mov	DWORD PTR __$ArrayPad$[ebp], eax
+
+; 42   : 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
+
+	xor	eax, eax
+	mov	BYTE PTR $T1[ebp], al
+
+; 43   : 		return x + y;
+; 44   : 	};
+; 45   : 	int y = 10;  // ignore this line
+
+	mov	DWORD PTR _y$[ebp], 10			; 0000000aH
+
+; 46   : 	int res = sum(4, 5);
+
+	push	5
+	push	4
+	lea	ecx, DWORD PTR _sum$[ebp]
+	call	??R<lambda_63d2202bb224af3072d421a99a26f479>@@QBEHHH@Z ; <lambda_63d2202bb224af3072d421a99a26f479>::operator()
+	mov	DWORD PTR _res$[ebp], eax
+
+; 47   : 	cout << "res = " << res << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	edi, esp
+	mov	eax, DWORD PTR _res$[ebp]
+	push	eax
+	push	OFFSET ??_C@_06OGCKBICK@res?5?$DN?5?$AA@
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	push	ecx
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	cmp	edi, esp
+	call	__RTC_CheckEsp
+	mov	ecx, eax
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 48   : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@lambda_ex1
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
+	xor	ecx, ebp
+	call	@__security_check_cookie@4
+	add	esp, 244				; 000000f4H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+$LN5@lambda_ex1:
+	DD	1
+	DD	$LN4@lambda_ex1
+$LN4@lambda_ex1:
+	DD	-9					; fffffff7H
+	DD	1
+	DD	$LN3@lambda_ex1
+$LN3@lambda_ex1:
+	DB	115					; 00000073H
+	DB	117					; 00000075H
+	DB	109					; 0000006dH
+	DB	0
+?lambda_ex1@@YAXXZ ENDP					; lambda_ex1
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??$ForEach@H$04V<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@@YAXAAY04HV<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@Z
+_TEXT	SEGMENT
+_i$1 = -8						; size = 4
+_arr$ = 8						; size = 4
+_op$ = 12						; size = 1
+??$ForEach@H$04V<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@@YAXAAY04HV<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@Z PROC ; ForEach<int,5,<lambda_03af731043f2dcdf79a62fa78f9863c5> >, COMDAT
+
+; 10   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 204				; 000000ccH
+	push	ebx
+	push	esi
+	push	edi
+	lea	edi, DWORD PTR [ebp-204]
+	mov	ecx, 51					; 00000033H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+
+; 11   : 	for (int i = 0; i < size; ++i)
+
+	mov	DWORD PTR _i$1[ebp], 0
+	jmp	SHORT $LN4@ForEach
+$LN2@ForEach:
+	mov	eax, DWORD PTR _i$1[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$1[ebp], eax
+$LN4@ForEach:
+	cmp	DWORD PTR _i$1[ebp], 5
+	jge	SHORT $LN1@ForEach
+
+; 12   : 		op(arr[i]);
+
+	mov	eax, DWORD PTR _i$1[ebp]
+	mov	ecx, DWORD PTR _arr$[ebp]
+	mov	edx, DWORD PTR [ecx+eax*4]
+	push	edx
+	lea	ecx, DWORD PTR _op$[ebp]
+	call	??$?RH@<lambda_03af731043f2dcdf79a62fa78f9863c5>@@QBE@H@Z ; <lambda_03af731043f2dcdf79a62fa78f9863c5>::operator()<int>
+	jmp	SHORT $LN2@ForEach
+$LN1@ForEach:
+
+; 13   : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 204				; 000000ccH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$ForEach@H$04V<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@@YAXAAY04HV<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@Z ENDP ; ForEach<int,5,<lambda_03af731043f2dcdf79a62fa78f9863c5> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream
@@ -1166,15 +1981,15 @@ text$x	ENDS
 ??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ENDP ; std::operator<<<std::char_traits<char> >
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
-;	COMDAT ??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z
+;	COMDAT ??0<lambda_d573e14cb21804fb154c9622791aefac>@@QAE@AAY04HAAH@Z
 _TEXT	SEGMENT
 _this$ = -8						; size = 4
-_x$ = 8							; size = 4
-_y$ = 12						; size = 4
-??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z PROC ; <lambda_67e914eeb8320af3ebc052e0e0937854>::operator(), COMDAT
+_<buffer>$ = 8						; size = 4
+_<sum>$ = 12						; size = 4
+??0<lambda_d573e14cb21804fb154c9622791aefac>@@QAE@AAY04HAAH@Z PROC ; <lambda_d573e14cb21804fb154c9622791aefac>::<lambda_d573e14cb21804fb154c9622791aefac>, COMDAT
 ; _this$ = ecx
 
-; 14   : 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
+; 27   : 	};
 
 	push	ebp
 	mov	ebp, esp
@@ -1189,80 +2004,153 @@ _y$ = 12						; size = 4
 	rep stosd
 	pop	ecx
 	mov	DWORD PTR _this$[ebp], ecx
-
-; 15   : 		return x + y;
-
-	mov	eax, DWORD PTR _x$[ebp]
-	add	eax, DWORD PTR _y$[ebp]
-
-; 16   : 	};
-
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _<buffer>$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _<sum>$[ebp]
+	mov	DWORD PTR [eax+4], ecx
+	mov	eax, DWORD PTR _this$[ebp]
 	pop	edi
 	pop	esi
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp
 	ret	8
-??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z ENDP ; <lambda_67e914eeb8320af3ebc052e0e0937854>::operator()
+??0<lambda_d573e14cb21804fb154c9622791aefac>@@QAE@AAY04HAAH@Z ENDP ; <lambda_d573e14cb21804fb154c9622791aefac>::<lambda_d573e14cb21804fb154c9622791aefac>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
+;	COMDAT ??R<lambda_d573e14cb21804fb154c9622791aefac>@@QBEXXZ
+_TEXT	SEGMENT
+_i$1 = -20						; size = 4
+_this$ = -8						; size = 4
+??R<lambda_d573e14cb21804fb154c9622791aefac>@@QBEXXZ PROC ; <lambda_d573e14cb21804fb154c9622791aefac>::operator(), COMDAT
+; _this$ = ecx
+
+; 24   : 	auto s = [&buffer, &sum]() {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 216				; 000000d8H
+	push	ebx
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-216]
+	mov	ecx, 54					; 00000036H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 25   : 		for(int i=0; i < 5; ++i)
+
+	mov	DWORD PTR _i$1[ebp], 0
+	jmp	SHORT $LN4@operator
+$LN2@operator:
+	mov	eax, DWORD PTR _i$1[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$1[ebp], eax
+$LN4@operator:
+	cmp	DWORD PTR _i$1[ebp], 5
+	jge	SHORT $LN1@operator
+
+; 26   : 			sum += buffer[i];
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+4]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx]
+	mov	ecx, DWORD PTR [ecx]
+	mov	edx, DWORD PTR _i$1[ebp]
+	add	ecx, DWORD PTR [eax+edx*4]
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax+4]
+	mov	DWORD PTR [edx], ecx
+	jmp	SHORT $LN2@operator
+$LN1@operator:
+
+; 27   : 	};
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??R<lambda_d573e14cb21804fb154c9622791aefac>@@QBEXXZ ENDP ; <lambda_d573e14cb21804fb154c9622791aefac>::operator()
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File f:\freelancing\teacheon\argy_greece\new_plan_byargy\templates_functionalprogramming\templates_functionobjects\templates_functionobjects\lambda_function.cpp
 ;	COMDAT _main
 _TEXT	SEGMENT
-$T1 = -237						; size = 1
-_res$ = -36						; size = 4
-_y$ = -24						; size = 4
-_sum$ = -9						; size = 1
+$T1 = -257						; size = 1
+_s$ = -56						; size = 8
+_sum$ = -40						; size = 4
+_buffer$ = -28						; size = 20
 __$ArrayPad$ = -4					; size = 4
 _main	PROC						; COMDAT
 
-; 9    : {
+; 16   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 244				; 000000f4H
+	sub	esp, 264				; 00000108H
 	push	ebx
 	push	esi
 	push	edi
-	lea	edi, DWORD PTR [ebp-244]
-	mov	ecx, 61					; 0000003dH
+	lea	edi, DWORD PTR [ebp-264]
+	mov	ecx, 66					; 00000042H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	eax, DWORD PTR ___security_cookie
 	xor	eax, ebp
 	mov	DWORD PTR __$ArrayPad$[ebp], eax
 
-; 10   : 	//[]() {
-; 11   : 	//	cout << "hello lambda"<< endl;
-; 12   : 	//}();       // using function call operator, we invoke the lambda function. 
-; 13   : 
-; 14   : 	auto sum = [](int x, int y) -> int {  // if the parameters are of same type as its return type, then its optional to specify the return type for the lambda function using the arrow operator..
+; 17   : 	//[]() {
+; 18   : 	//	cout << "hello lambda"<< endl;
+; 19   : 	//}();       // using function call operator, we invoke the lambda function. 
+; 20   : 	// generic or polymorphic lambdas , which has been introduce at the advent of C++14.
+; 21   : 	int buffer[]{ 2,4,6,8,7 };
 
-	xor	eax, eax
-	mov	BYTE PTR $T1[ebp], al
+	mov	DWORD PTR _buffer$[ebp], 2
+	mov	DWORD PTR _buffer$[ebp+4], 4
+	mov	DWORD PTR _buffer$[ebp+8], 6
+	mov	DWORD PTR _buffer$[ebp+12], 8
+	mov	DWORD PTR _buffer$[ebp+16], 7
 
-; 15   : 		return x + y;
-; 16   : 	};
-; 17   : 	int y = 10;  // ignore this line
+; 22   : 	
+; 23   : 	int sum{}; // sum =0  ; uniform initialization
 
-	mov	DWORD PTR _y$[ebp], 10			; 0000000aH
+	mov	DWORD PTR _sum$[ebp], 0
 
-; 18   : 	int res = sum(4,5);
+; 24   : 	auto s = [&buffer, &sum]() {
+; 25   : 		for(int i=0; i < 5; ++i)
+; 26   : 			sum += buffer[i];
+; 27   : 	};
 
-	push	5
-	push	4
-	lea	ecx, DWORD PTR _sum$[ebp]
-	call	??R<lambda_67e914eeb8320af3ebc052e0e0937854>@@QBEHHH@Z ; <lambda_67e914eeb8320af3ebc052e0e0937854>::operator()
-	mov	DWORD PTR _res$[ebp], eax
+	lea	eax, DWORD PTR _sum$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR _buffer$[ebp]
+	push	ecx
+	lea	ecx, DWORD PTR _s$[ebp]
+	call	??0<lambda_d573e14cb21804fb154c9622791aefac>@@QAE@AAY04HAAH@Z ; <lambda_d573e14cb21804fb154c9622791aefac>::<lambda_d573e14cb21804fb154c9622791aefac>
 
-; 19   : 	cout << "res = " << res << endl;
+; 28   : 
+; 29   : 	s();
+
+	lea	ecx, DWORD PTR _s$[ebp]
+	call	??R<lambda_d573e14cb21804fb154c9622791aefac>@@QBEXXZ ; <lambda_d573e14cb21804fb154c9622791aefac>::operator()
+
+; 30   : 	cout << "Sum =  "  << sum << endl;
 
 	mov	esi, esp
 	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
 	mov	edi, esp
-	mov	eax, DWORD PTR _res$[ebp]
+	mov	eax, DWORD PTR _sum$[ebp]
 	push	eax
-	push	OFFSET ??_C@_06OGCKBICK@res?5?$DN?5?$AA@
+	push	OFFSET ??_C@_07CFAHFKIB@Sum?5?$DN?5?5?$AA@
 	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
 	push	ecx
 	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
@@ -1276,8 +2164,30 @@ _main	PROC						; COMDAT
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 20   : 
-; 21   : 	system("pause");
+; 31   : 	ForEach(buffer, [](auto x) {
+
+	xor	eax, eax
+	mov	BYTE PTR $T1[ebp], al
+	movzx	ecx, BYTE PTR $T1[ebp]
+	push	ecx
+	lea	edx, DWORD PTR _buffer$[ebp]
+	push	edx
+	call	??$ForEach@H$04V<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@@YAXAAY04HV<lambda_03af731043f2dcdf79a62fa78f9863c5>@@@Z ; ForEach<int,5,<lambda_03af731043f2dcdf79a62fa78f9863c5> >
+	add	esp, 8
+
+; 32   : 		cout << x << " ";
+; 33   : 	});
+; 34   : 
+; 35   : 	cout << endl;
+
+	mov	esi, esp
+	push	OFFSET ??$endl@DU?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@@Z ; std::endl<char,std::char_traits<char> >
+	mov	ecx, DWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+	call	DWORD PTR __imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 36   : 	system("pause");
 
 	mov	esi, esp
 	push	OFFSET ??_C@_05PDJBBECF@pause?$AA@
@@ -1286,16 +2196,16 @@ _main	PROC						; COMDAT
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 22   : 	return 0;
+; 37   : 	return 0;
 
 	xor	eax, eax
 
-; 23   : }
+; 38   : }
 
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN5@main
+	lea	edx, DWORD PTR $LN7@main
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
@@ -1305,24 +2215,41 @@ _main	PROC						; COMDAT
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 244				; 000000f4H
+	add	esp, 264				; 00000108H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	3
-$LN5@main:
-	DD	1
-	DD	$LN4@main
-$LN4@main:
-	DD	-9					; fffffff7H
-	DD	1
+	npad	1
+$LN7@main:
+	DD	3
+	DD	$LN6@main
+$LN6@main:
+	DD	-28					; ffffffe4H
+	DD	20					; 00000014H
 	DD	$LN3@main
-$LN3@main:
+	DD	-40					; ffffffd8H
+	DD	4
+	DD	$LN4@main
+	DD	-56					; ffffffc8H
+	DD	8
+	DD	$LN5@main
+$LN5@main:
+	DB	115					; 00000073H
+	DB	0
+$LN4@main:
 	DB	115					; 00000073H
 	DB	117					; 00000075H
 	DB	109					; 0000006dH
+	DB	0
+$LN3@main:
+	DB	98					; 00000062H
+	DB	117					; 00000075H
+	DB	102					; 00000066H
+	DB	102					; 00000066H
+	DB	101					; 00000065H
+	DB	114					; 00000072H
 	DB	0
 _main	ENDP
 _TEXT	ENDS
@@ -1465,7 +2392,7 @@ ___formal$ = 8						; size = 4
 ___formal$ = 12						; size = 4
 ?__empty_global_delete@@YAXPAXI@Z PROC			; __empty_global_delete, COMDAT
 
-; 24   : }
+; 73   : }
 
 	push	ebp
 	mov	ebp, esp
@@ -1492,7 +2419,7 @@ _TEXT	SEGMENT
 ___formal$ = 8						; size = 4
 ?__empty_global_delete@@YAXPAX@Z PROC			; __empty_global_delete, COMDAT
 
-; 24   : }
+; 73   : }
 
 	push	ebp
 	mov	ebp, esp
