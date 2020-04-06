@@ -34,12 +34,14 @@ int main()
 	else
 		cout << "File couldn't be opened " << endl;
 	set<string> objects;  // we are using sets to store distinct object names beacuse searching is fast in set.
+	set<string> objectIds;
 	while (getline(file_input, line)) {
 		cout << line << endl;
-		int pos, colonPos;
+		int pos, colonPos, equalPos, slashPos;
 		if ((pos = line.find(' ')) != string::npos)
 		{
 			colonPos = line.find(':');
+			printf("ColonPosition is: %d\n", colonPos);
 			//int noOfCharsToRead = colonPos - pos;  // from pos + 1 location
 			string objectName;
 			for (int i = pos + 1; i < colonPos; ++i)
@@ -47,7 +49,33 @@ int main()
 			cout << "ObjectName: " << objectName << endl;
 			objects.insert(objectName);
 		}
+		int commaPos = line.find(',');
+		colonPos = line.find(':');
+		if (((equalPos = line.find('=', colonPos + 1)) != string::npos) && (equalPos < commaPos))
+		{
+			string objectIdName;
+			colonPos = line.find(':', equalPos + 1);
+			cout << "colonPos " << colonPos << endl;
+			//cout << "equalPos " << equalPos << endl;
+			for (int i = equalPos + 1; i < colonPos; ++i)
+				objectIdName += line[i];
+			cout << "ObjectId: " << objectIdName << endl;
+			objectIds.insert(objectIdName);
+		}
+		while (((slashPos = line.find('/', colonPos + 1)) != string::npos) && (slashPos < commaPos))
+		{
+			string objectIdName;
+			colonPos = line.find(':', slashPos + 1);
+			cout << "colonPos " << colonPos << endl;
+			//cout << "equalPos " << equalPos << endl;
+			for (int i = slashPos + 1; i < colonPos; ++i)
+				objectIdName += line[i];
+			cout << "ObjectId: " << objectIdName << endl;
+			objectIds.insert(objectIdName);
+		}
+
 	} // end of while
+	
 	ofstream *out = new ofstream[objects.size()];
 	auto itr = objects.begin();
 	for (int i = 0; i < objects.size(); ++i,++itr)
