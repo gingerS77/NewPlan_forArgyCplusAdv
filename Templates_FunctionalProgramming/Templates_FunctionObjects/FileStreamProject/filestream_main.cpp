@@ -3,6 +3,7 @@
 #include <string>
 #include <regex>
 #include <set>
+#include <memory>
 using namespace std;
 
 void fun()
@@ -25,6 +26,28 @@ void fun1()
 	file_output << "very last line in this file" << endl;
 	//file_output.close();
 }
+
+void GetAllObjects(string &line, set<string> &objects)
+{
+	cout << line << endl;
+	int pos, colonPos;
+	if ((pos = line.find(' ')) != string::npos)
+	{
+		colonPos = line.find(':');
+		printf("ColonPosition is: %d\n", colonPos);
+		//int noOfCharsToRead = colonPos - pos;  // from pos + 1 location
+		string objectName;
+		for (int i = pos + 1; i < colonPos; ++i)
+			objectName += line[i];
+		cout << "ObjectName: " << objectName << endl;
+		objects.insert(objectName);
+	}
+}
+
+void GetObjectsIds()
+{
+
+}
 int main()
 {
 	ifstream file_input("input.txt", ios::in);  // reading
@@ -36,19 +59,8 @@ int main()
 	set<string> objects;  // we are using sets to store distinct object names beacuse searching is fast in set.
 	set<string> objectIds;
 	while (getline(file_input, line)) {
-		cout << line << endl;
-		int pos, colonPos, equalPos, slashPos;
-		if ((pos = line.find(' ')) != string::npos)
-		{
-			colonPos = line.find(':');
-			printf("ColonPosition is: %d\n", colonPos);
-			//int noOfCharsToRead = colonPos - pos;  // from pos + 1 location
-			string objectName;
-			for (int i = pos + 1; i < colonPos; ++i)
-				objectName += line[i];
-			cout << "ObjectName: " << objectName << endl;
-			objects.insert(objectName);
-		}
+		GetAllObjects(line, objects);
+		int colonPos, equalPos, slashPos;
 		int commaPos = line.find(',');
 		colonPos = line.find(':');
 		if (((equalPos = line.find('=', colonPos + 1)) != string::npos) && (equalPos < commaPos))
@@ -82,6 +94,12 @@ int main()
 	{
 		out[i].open((*itr + ".txt").c_str(), ios::out);
 	}
+	itr = objects.begin();
+	for (int i = 0; i < objects.size(); ++i, ++itr)
+	{
+		out[i].close();
+	}
+	delete[] out;
 	system("pause");
 	return 0;
 }
