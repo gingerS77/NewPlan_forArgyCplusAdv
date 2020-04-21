@@ -10,6 +10,24 @@
 
 void* socketThread(void *arg)
 {
+	int newSocket = (int*)arg;
+  	printf("client started inside socketserverthread  on socket # %d\n",newSocket);
+  
+  	char client_message[1000];  // this buffer is meant to recv the bytes from the client side
+  	char buffer[1024];          // this buffer we'll be finally sending back to client 
+
+  	unsigned int noOfBytesRecd = recv(newSocket,client_message, sizeof(client_message),NULL);
+
+  	strcpy(buffer,"Hello Client # ");
+  	char idnewsock[10];
+  	sprintf(idnewsock,"%d",newSocket);   // would write the newsocket valute to the buffer 'idnewsock'
+  	strcat(buffer, idnewsock);
+  	strcat(buffer,client_message);
+  	strcat(buffer,"\n");
+
+  	send(newSocket,buffer,strlen(buffer),NULL);   // the actual no. of bytes which are being sent is specified in the third parameter of the send() function
+  	printf("Exit socketThread with id - %d\n",newSocket);
+  	close(newSocket);
 	
 }
 
